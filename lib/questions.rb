@@ -10,7 +10,7 @@ end
 
 # remove instances of nil (but NOT false) from an array
 def remove_nils_from_array(array)
-  array.reject { |item| item == nil }
+  array.compact
 end
 
 # remove instances of nil AND false from an array
@@ -21,7 +21,7 @@ end
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
-  array.each { |item| item.reverse! }
+  array.map { |item| item.reverse }
 end
 
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
@@ -29,11 +29,13 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice, 
 def every_possible_pairing_of_students(array)
+  array.combination(2).to_a
 end
 
 # discard the first 3 elements of an array, 
 # e.g. [1, 2, 3, 4, 5, 6] becomes [4, 5, 6]
 def all_elements_except_first_3(array)
+  # array.delete_at(0..2)
 end
 
 # add an element to the beginning of an array
