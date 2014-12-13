@@ -53,7 +53,7 @@ end
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
-  string.slice(0...(string.length.to_f/2).ceil)
+  string.slice(0...(string.(length.to_f / 2)).ceil)
 end
 
 # turn a positive integer into a negative integer. A negative integer
@@ -75,6 +75,7 @@ end
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
+  array.select { |word| word.slice(0...(word.length / 2)) == word.slice((word.length / 2 * -1)..-1).reverse }.length
 end
 
 # return the shortest word in an array
