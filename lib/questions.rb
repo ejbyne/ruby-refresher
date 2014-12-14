@@ -177,8 +177,10 @@ end
 # get the domain name *without* the .com part, from an email address
 # so alex@makersacademy.com becomes makersacademy
 def get_domain_name_from_email_address(email)
+  # (/.+@([^.]+).+/).match(email).to_s
   # (/.+[^@](.+)[^.].+/).match(email).to_s
-  email.split("@")[1].split(".")[0]
+  # email.split("@")[1].split(".")[0]
+  email.gsub(/.+@([^.]+).+/, '\1')
 end
 
 # capitalize the first letter in each word of a string, 
@@ -198,15 +200,18 @@ end
 # get the upper limit of a range. e.g. for the range 1..20, you
 # should return 20
 def get_upper_limit_of(range)
+  range.max
 end
 
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+  # range.end == range.max + 1
 end
 
 # get the square root of a number
 def square_root_of(number)
+  Math.sqrt(number)
 end
 
 # count the number of words in a file
