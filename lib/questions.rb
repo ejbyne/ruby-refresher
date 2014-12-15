@@ -252,16 +252,16 @@ end
 # the next year when your birthday will fall on a friday
 # e.g. january 1st, will next be a friday in 2016
 # return the day as a capitalized string like 'Friday'
-# def your_birthday_is_on_a_friday_in_the_year(birthday)
-#   until birthday.friday?
-#     if (birthday.year % 4) == 0
-#       birthday = birthday + 31622400
-#     else
-#       birthday = birthday + 31536000
-#     end
-#   end
-#   return birthday.year
-# end
+def your_birthday_is_on_a_friday_in_the_year(birthday)
+  until birthday.friday?
+    if (birthday.year % 4) == 0
+      birthday = birthday + 31622400
+    else
+      birthday = birthday + 31536000
+    end
+  end
+  return birthday.year
+end
 
 require 'date'
 
@@ -299,4 +299,13 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+  (0..99).reverse_each do |i|
+    puts  "#{i} bottles of beer on the wall, #{i} bottles of beer.\n" +
+          "Take one down and pass it around, #{i-1} bottles of beer." if i > 1
+    puts  "1 bottle of beer on the wall, 1 bottle of beer.\n" +
+          "Take one down and pass it around, no more bottles of beer." if i == 1
+    puts  "No more bottles of beer on the wall, no more bottles of beer.\n" + 
+          "Go to the store and buy some more, 99 bottles of beer on the wall." if i == 0
+    i -= 1
+  end
 end
