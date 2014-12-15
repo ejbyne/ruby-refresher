@@ -53,7 +53,8 @@ end
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
-  string.slice(0...(string.(length.to_f / 2)).ceil)
+  # string.slice(0...(string.(length.to_f / 2)).ceil)
+  string[0...(string.length.to_f / 2).ceil]
 end
 
 # turn a positive integer into a negative integer. A negative integer
@@ -75,7 +76,8 @@ end
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
-  array.select { |word| word.slice(0...(word.length / 2)) == word.slice((word.length / 2 * -1)..-1).reverse }.length
+  # array.select { |word| word.slice(0...(word.length / 2)) == word.slice((word.length / 2 * -1)..-1).reverse }.length
+  array.count { |word| word == word.reverse }
 end
 
 # return the shortest word in an array
@@ -97,8 +99,9 @@ end
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
-  array.dup.each { |number| array.push(number) }
-  return array
+  # array.dup.each { |number| array.push(number) }
+  # return array
+  array * 2
 end
 
 # convert a symbol into a string
@@ -117,7 +120,8 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
-  array.each_with_index { |number, index| return array.take(index) if number > 5 }
+  # array.each_with_index { |number, index| return array.take(index) if number > 5 }
+  array.take_while { |number| number <= 5 }
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -196,6 +200,7 @@ end
 # where 'special character' means anything apart from the letters
 # a-z (uppercase and lower) or numbers
 def check_a_string_for_special_characters(string)
+  string.scan(/[^a-zA-Z0-9]/).length > 0
 end
 
 # get the upper limit of a range. e.g. for the range 1..20, you
@@ -207,7 +212,8 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
-  # range.end == range.max + 1
+  # range.end > range.max
+  range.exclude_end?
 end
 
 # get the square root of a number
@@ -217,6 +223,9 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+  sum = 0
+  File.open(file_path, 'r').each_line { |line| sum = sum + line.split(" ").length }
+  return sum
 end
 
 # --- tougher ones ---
