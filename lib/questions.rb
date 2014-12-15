@@ -1,6 +1,6 @@
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
-  array.select { |item| item[0] == 'a' }
+  array.select { |item| item.start_with?('a') }
 end
 
 # keep only the elements that start with a vowel
@@ -129,6 +129,7 @@ end
 # {'a' => 'b', 'c' => 'd'}
 def convert_array_to_a_hash(array)
   array.each_slice(2).to_a.to_h
+  # Hash[*array]
 end
 
 # get all the letters used in an array of words and return
@@ -137,6 +138,7 @@ end
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
   array.map { |word| word.split(//) }.flatten.sort
+  # array.join.chars.sort
 end
 
 # swap the keys and values in a hash. e.g.
@@ -225,7 +227,7 @@ end
 def word_count_a_file(file_path)
   sum = 0
   File.open(file_path, 'r').each_line { |line| sum = sum + line.split(" ").length }
-  return sum
+  sum
 end
 
 # --- tougher ones ---
@@ -235,6 +237,7 @@ end
 # the method foobar should be invoked
 def call_method_from_string(str_method)
   str_method.to_proc.call
+  # send :str_method
 end
 
 # return true if the date is a uk bank holiday for 2014
@@ -249,7 +252,24 @@ end
 # the next year when your birthday will fall on a friday
 # e.g. january 1st, will next be a friday in 2016
 # return the day as a capitalized string like 'Friday'
+# def your_birthday_is_on_a_friday_in_the_year(birthday)
+#   until birthday.friday?
+#     if (birthday.year % 4) == 0
+#       birthday = birthday + 31622400
+#     else
+#       birthday = birthday + 31536000
+#     end
+#   end
+#   return birthday.year
+# end
+
+require 'date'
+
 def your_birthday_is_on_a_friday_in_the_year(birthday)
+  until birthday.friday?
+    birthday = birthday.to_date.next_year
+  end
+  birthday.year
 end
 
 # in a file, total the number of times words of different lengths

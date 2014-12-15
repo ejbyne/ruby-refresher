@@ -156,12 +156,12 @@ describe 'the Friday test :)' do
     expect(n).to eq '31/10/2013'
   end
 
-  it 'get_domain_name_from_email_address' do
+  fit 'get_domain_name_from_email_address' do
     n = get_domain_name_from_email_address 'alex@makersacademy.com'
     expect(n).to eq 'makersacademy'
   end
 
-  it 'titleize_a_string' do
+  fit 'titleize_a_string' do
     n = titleize_a_string 'the lion the witch and the wardrobe'
     expect(n).to eq 'The Lion the Witch and the Wardrobe'
   end
@@ -203,7 +203,7 @@ describe 'the Friday test :)' do
     expect { call_method_from_string('foobar') }.to raise_error(NameError)
   end
 
-  fit 'is_a_2014_bank_holiday?' do
+  it 'is_a_2014_bank_holiday?' do
     a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
     b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
 
@@ -211,7 +211,7 @@ describe 'the Friday test :)' do
     expect(b).to be false
   end
 
-  it 'your_birthday_is_on_a_friday_in_the_year' do
+  fit 'your_birthday_is_on_a_friday_in_the_year' do
     n = your_birthday_is_on_a_friday_in_the_year(Time.new(2013, 1, 1))
     expect(n).to eq 2016
   end
