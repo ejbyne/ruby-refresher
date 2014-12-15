@@ -266,9 +266,7 @@ end
 require 'date'
 
 def your_birthday_is_on_a_friday_in_the_year(birthday)
-  until birthday.friday?
-    birthday = birthday.to_date.next_year
-  end
+  birthday = birthday.to_date.next_year until birthday.friday?
   birthday.year
 end
 
