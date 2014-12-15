@@ -177,10 +177,9 @@ end
 # get the domain name *without* the .com part, from an email address
 # so alex@makersacademy.com becomes makersacademy
 def get_domain_name_from_email_address(email)
-  # (/.+@([^.]+).+/).match(email).to_s
-  # (/.+[^@](.+)[^.].+/).match(email).to_s
-  # email.split("@")[1].split(".")[0]
-  email.gsub(/.+@([^.]+).+/, '\1')
+  # (/@([^.]+)/).match(email).to_s
+  # email.gsub(/.+@([^.]+).+/, '\1')
+  email.split("@")[1].split(".")[0]
 end
 
 # capitalize the first letter in each word of a string, 
@@ -189,6 +188,8 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
+  string_array = string.split(" ")
+  string_array.each { |word| word.capitalize! unless word != string_array[0] && (word == "a" || word == "the" || word == "and") }.join(" ")
 end
 
 # return true if a string contains any special characters
