@@ -284,7 +284,12 @@ end
 # implement fizzbuzz without modulo, i.e. the % method
 # go from 1 to 100
 # (there's no RSpec test for this one)
-def fizzbuzz_without_modulo
+def say_fizzbuzz
+  (1..100).each do |i|
+    puts "#{i} = Fizzbuzz" if i.to_f / 15 == i / 15
+    puts "#{i} = Fizz" if i.to_f / 3 == i / 3
+    puts "#{i} = Buzz" if i.to_f / 5 == i / 5
+  end
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
