@@ -1,36 +1,25 @@
-## Friday test!
+# Ruby Refresher Test
 
-Here we're going to revisit the basics of Ruby. There are 41 questions - you don't have to do every single one (although if you can, that's great). You should be able to do at least 50% of them. They vary in level from quite easy to fairly hard. Work through them and check if they're correct by running the specs.
+## Summary
 
-You should be able to answer most questions with a couple of lines of code, and just a few methods. If you're writing a long, complex solution, there's probably a better way.
+This was our Week 7 challenge at Makers Academy, a "Ruby Refresher" test in preparation for learning Rails. The test comprised 41 questions, all but two of which had a corresponding RSpec test that needed to be passed. The focus of the test was to answer the questions in an elegant and concise way, using the most appropriate methods. It was a really good way of revising Ruby methods and even learning some new ones, as well as getting more familiar with the Ruby documentation.
 
-To run the specs, just run
+## Technologies
 
-~~~
-$ rspec questions_spec.rb
-~~~
+- Ruby
+- RSpec
 
-**Quick tip**: to run a single example, change `it` to `fit` on that example, then run
+## Instructions
 
-~~~
-$ rspec questions_spec.rb --tag focus
-~~~
+Clone the repo on your machine:
 
-Also, don't spend the whole weekend on this. Try and do the bulk of them today, revisit it a bit this weekend if you want. Spend the weekend consolodating the stuff we've covered on JS and Node.js, and carrying on with your Node.js apps :smile:
+```
+$ https://github.com/ejbyne/ruby-refresher.git
+```
 
-Good luck
+Change into the directory and run the tests:
 
-### Rules
-
-* Try and get the RSpec tests to pass (but not by cheating - i.e. hardcoding the expected value)
-* You shouldn't need any extra libraries or gems
-* The cleaner your code the better!
-* Googling is fine as usual
-
-### Tips
-
-* Use the ruby docs http://www.ruby-doc.org/core-2.0.0/String.html
-* Try and break down the problems into smaller chunks. For e.g. if you google "How to select elements in an array that start with a", you won't have much luck. Try and find out a) how to select certain elements in an array, b) how to test if a string starts with an 'a'
-* Don't forget Enumerable (advanced array methods)
-* Read the specs and the comments - if you're still confused, just ask.
-* Don't panic :wink:
+```
+$ cd ruby-refresher
+$ rspec
+```
